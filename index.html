@@ -3,21 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YMC Links </title>
-<link rel="icon" href="YMC.ico" type="image/x-icon">
+  <title>YMC Links | Oyun Hesapları & Item Satış</title>
+  <meta name="description" content="YMCSHOP - Oyun hesapları ve item satış mağazalarına hızlı erişim.">
+  <meta property="og:image" content="https://ugc.production.linktr.ee/195635e3-a27c-4f49-85fb-1ba12f39f7e4_-simsiz-video---Clipchamp-ile-yap-ld---2-.gif">
   
-  <!-- Google Fonts -->
+  <link rel="icon" href="YMC.ico" type="image/x-icon">
+  <link rel="icon" href="https://via.placeholder.com/64" type="image/png" fallback>
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKEG6CP3KC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WKEG6CP3KC');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKEG6CP3KC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WKEG6CP3KC');
+  </script>
   
   <style>
     body {
@@ -26,7 +28,7 @@
       margin: 0;
       padding: 0;
       color: #fff;
-      overflow: auto; /* Kaydırma engellemesi kaldırıldı */
+      overflow: auto;
     }
     header {
       position: relative;
@@ -71,14 +73,14 @@
       border-radius: 10px;
       padding: 10px;
       width: 120px;
-      background-color: rgba(0, 0, 0, 0.5); /* Şeffaf siyah arka plan */
+      background-color: rgba(0, 0, 0, 0.5);
       transition: 0.3s;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Hafif gölge efekti */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
     .link-item:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* Üzerine gelindiğinde beyazlaşan şeffaflık */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Hoverda daha belirgin gölge */
-      transform: translateY(-5px); /* Hoverda hafif yukarı kayma efekti */
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transform: translateY(-5px);
     }
     .link-item img {
       width: 60px;
@@ -97,21 +99,20 @@
       width: 100%;
       height: 100%;
       z-index: -1;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     }
     video {
-      object-fit: cover; /* Video, ekran boyutuna uygun şekilde kesilerek yerleştirilecek */
+      object-fit: cover;
       width: 100%;
-      height: 100vh; /* Tam ekran yüksekliği */
+      height: 100vh;
       position: absolute;
       top: 0;
       left: 0;
       z-index: -1;
     }
-
-    /* E-posta Butonu */
     .email-btn {
       margin-top: 50px;
-      background-color: #0056b3; /* Koyu mavi arka plan */
+      background-color: #0056b3;
       color: white;
       padding: 15px 30px;
       font-size: 18px;
@@ -126,72 +127,393 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     .email-btn:hover {
-      background-color: #004085; /* Hoverda daha koyu mavi */
-      transform: translateY(-5px); /* Hoverda hafif yukarı kayma efekti */
+      background-color: #004085;
+      transform: translateY(-5px);
     }
-
     .email-btn img {
-      width: 40px; /* İkon boyutunu büyütüyoruz */
+      width: 40px;
       height: 40px;
       margin-right: 10px;
-      background-color: transparent; /* Arka plan şeffaf */
+      background-color: transparent;
+    }
+    .ymc-plus-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(45deg, #ff8a00, #e52e71);
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+    .ymc-plus-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .modal-content {
+      background: rgba(0, 0, 0, 0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+      border: 2px solid #e52e71;
+      position: relative;
+      margin: 20px 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .modal h2 {
+      color: #ff8a00;
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .modal-join-btn {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.3s;
+      font-size: 16px;
+    }
+    .modal-join-btn:hover {
+      background-color: #128C7E;
+    }
+    .modal-show-btn {
+      background-color: transparent;
+      color: #ff6600;
+      border: 1px solid #ff6600;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+    .modal-show-btn:hover {
+      background-color: #ff6600;
+      color: white;
+    }
+    .advantages-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    .advantages-content {
+      padding: 15px;
+      text-align: left;
+      color: #fff;
+    }
+    .advantage-category {
+      margin-bottom: 15px;
+    }
+    .category-title {
+      font-weight: bold;
+      color: #ff6600;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    .advantage-item {
+      margin-left: 15px;
+      margin-bottom: 5px;
+      position: relative;
+      padding-left: 15px;
+      color: #fff;
+      font-size: 14px;
+    }
+    .advantage-item:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #ff6600;
+    }
+    .special-advantages {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px dashed #ff6600;
+      text-align: left;
+    }
+    .special-advantage {
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #fff;
+      padding-left: 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 24px;
+    }
+    .special-advantage:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .hediye-max:before {
+      background-image: url('https://play-lh.googleusercontent.com/cpBOIqHqOJNwoPL9aRvlDVjKmNdEzHMMbu4tLXKZgoyQgWO4nwEbPBkM2i_Cy-9_S9g=w240-h480-rw');
+      background-size: 24px 24px;
+    }
+    .exxen:before {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/db/Exxen.png');
+      background-size: 24px 24px;
+    }
+    .youtube:before {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/240px-YouTube_full-color_icon_%282017%29.svg.png');
+    }
+    .kaspersky:before {
+      background-image: url('https://images.seeklogo.com/logo-png/50/1/kaspersky-logo-png_seeklogo-507437.png');
+      background-size: 24px 24px;
+    }
+    .canva:before {
+      background-image: url('https://play-lh.googleusercontent.com/JC3HW-ps59VAEU3vuJoi3I5XB_IQ9ISuILLudUY9uLSW7eKfqtXitrB-fF865rV4TQ=s94-rw');
+      background-size: 24px 24px;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 36px; }
+      .subtitle { font-size: 18px; }
+      .link-item { width: 100px; }
+      .email-btn { padding: 12px 20px; font-size: 16px; }
+      .ymc-plus-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 16px;
+      }
+      .modal-content {
+        padding: 20px;
+      }
+      .advantages-content {
+        padding: 10px;
+      }
+      .special-advantage {
+        padding-left: 28px;
+        font-size: 14px;
+      }
+      .special-advantage:before {
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Video Arka Plan -->
-  <video autoplay muted loop>
-    <source src="https://cdn.pixabay.com/video/2023/03/09/153976-817104245_large.mp4" type="video/mp4">
-  </video>
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="https://cdn.pixabay.com/video/2023/03/09/153976-817104245_large.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <header>
-    <!-- GIF Logo -->
-    <img src="https://ugc.production.linktr.ee/195635e3-a27c-4f49-85fb-1ba12f39f7e4_-simsiz-video---Clipchamp-ile-yap-ld---2-.gif?io=true&size=avatar-v3_0" alt="YMCSHOP Logo">
-    <!-- Başlık -->
+    <img src="https://ugc.production.linktr.ee/195635e3-a27c-4f49-85fb-1ba12f39f7e4_-simsiz-video---Clipchamp-ile-yap-ld---2-.gif" alt="YMCSHOP Logo">
     <h1>YMCSHOP</h1>
-    <!-- Alt Yazı -->
     <div class="subtitle">𝕀𝕥'𝕤 𝔸𝕝𝕝 𝔸𝕓𝕠𝕦𝕥 𝕐𝕠𝕦</div>
   </header>
 
   <div class="link-container">
-    <!-- 1. Link - ItemSatış Mağazamız -->
     <a href="https://www.itemsatis.com/p/YMCSHOP" class="link-item" target="_blank">
-      <img src="https://ugc.production.linktr.ee/uNjneSjXRUqnHQiNkBhm_unnamed%20(2).webp?io=true&size=thumbnail-stack" alt="ItemSatış">
+      <img src="https://ugc.production.linktr.ee/uNjneSjXRUqnHQiNkBhm_unnamed%20(2).webp" alt="ItemSatış">
       <span>Item Satış Mağazamız</span>
     </a>
-    <!-- 2. Link - ItemHesap Mağazamız -->
     <a href="https://www.itemhesap.com/magaza/ymcshop" class="link-item" target="_blank">
-      <img src="https://ugc.production.linktr.ee/dff51125-1d08-4372-9c1b-048b05bd1cb7_unnamed.png?io=true&size=thumbnail-stack" alt="ItemHesap">
+      <img src="https://ugc.production.linktr.ee/dff51125-1d08-4372-9c1b-048b05bd1cb7_unnamed.png" alt="ItemHesap">
       <span>Item Hesap Mağazamız</span>
     </a>
-    <!-- 3. Link - Hesap.com.tr Mağazamız -->
     <a href="https://hesap.com.tr/u/ymcshop" class="link-item" target="_blank">
-      <img src="https://ugc.production.linktr.ee/1e1c955f-66ee-4e14-b30b-e1ab340e34b4_tBF7dQ86-400x400.png?io=true&size=thumbnail-stack" alt="Hesap.com.tr">
+      <img src="https://ugc.production.linktr.ee/1e1c955f-66ee-4e14-b30b-e1ab340e34b4_tBF7dQ86-400x400.png" alt="Hesap.com.tr">
       <span>Hesap.com.tr Mağazamız</span>
     </a>
-    <!-- 4. Link - OyunAlışveriş Mağazamız -->
     <a href="https://www.oyunalisveris.com/magaza/YMCSHOP" class="link-item" target="_blank">
-      <img src="https://ugc.production.linktr.ee/209fcfaa-3edf-437f-9531-20ad8a4a146e_Screenshot-13.png?io=true&size=thumbnail-stack" alt="OyunAlışveriş">
+      <img src="https://ugc.production.linktr.ee/209fcfaa-3edf-437f-9531-20ad8a4a146e_Screenshot-13.png" alt="OyunAlışveriş">
       <span>OyunAlışveriş Mağazamız</span>
     </a>
-    <!-- 5. Link - Steam Profilimiz -->
     <a href="https://steamcommunity.com/id/YMCCLASS/" class="link-item" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam">
       <span>Steam Profilimiz</span>
     </a>
-    <!-- 6. Link - Instagram Hesabımız -->
     <a href="https://www.instagram.com/ymc_resmi/" class="link-item" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
       <span>Instagram Hesabımız</span>
     </a>
   </div>
 
-  <!-- E-posta Butonu (İş Teklifleri İçin) -->
   <a href="mailto:business@ymcshop.online" class="email-btn">
     <img src="https://cdn-icons-png.flaticon.com/512/10135/10135758.png" alt="Mail Icon">
     İş Teklifleri İçin
   </a>
+
+  <button class="ymc-plus-btn">YMC+</button>
+
+  <div id="ymcModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>YMC+ AVANTAJLARI</h2>
+      
+      <div class="special-advantages">
+        <div class="special-advantage hediye-max">Hediye Max reklamlı üyelik</div>
+        <div class="special-advantage exxen">1 Aylık Exxen üyeliği</div>
+        <div class="special-advantage youtube">1 Ay YouTube Premium erişimi</div>
+        <div class="special-advantage kaspersky">Kaspersky Premium + VPN (1 Ay)</div>
+        <div class="special-advantage canva">Abonelik boyunca Canva Pro</div>
+      </div>
+      
+      <div class="modal-buttons">
+        <button class="modal-join-btn" id="modalJoinButton">YMC+'a Katıl</button>
+        <button class="modal-show-btn" id="modalShowAdvantages">Tüm Avantajları Göster</button>
+      </div>
+      
+      <div class="advantages-container" id="advantagesContainer">
+        <div class="advantages-content">
+          <div class="advantage-category">
+            <div class="category-title">🚗 Ulaşımda Avantajlar</div>
+            <div class="advantage-item">Uber yolculuklarında 400 TL'ye varan indirim fırsatı!</div>
+            <div class="advantage-item">Enterprise araç kiralamalarında %40 indirim!</div>
+          </div>
+          
+          <div class="advantage-category">
+            <div class="category-title">⛽ Yolda Tasarruf</div>
+            <div class="advantage-item">Petrol Ofisi'nden yakıt alımlarında 5 kat puan!</div>
+          </div>
+          
+          <div class="advantage-category">
+            <div class="category-title">🍽️ Yeme-İçme Keyfi</div>
+            <div class="advantage-item">Tıkla Gelsin®'den:</div>
+            <div class="advantage-item">BK Steakhouse® Menü'de 50 TL indirim!</div>
+            <div class="advantage-item">Maxi Popchicken Menü'de 50 TL indirim!</div>
+            <div class="advantage-item">Coffy'den 1 adet kahve hediye ☕️</div>
+          </div>
+          
+          <div class="advantage-category">
+            <div class="category-title">🧳 Seyahatte Süper Kazanç</div>
+            <div class="advantage-item">Bilet Dükkanı'ndan:</div>
+            <div class="advantage-item">Otobüs biletlerinde 60 TL hediye</div>
+            <div class="advantage-item">Yurt içi uçak biletinde 175 TL</div>
+            <div class="advantage-item">Yurt dışı uçak biletinde 300 TL anında indirim!</div>
+          </div>
+          
+          <div class="advantage-category">
+            <div class="category-title">🎬 Eğlencede Özgürlük</div>
+            <div class="advantage-item">Hediye Max reklamlı üyelik</div>
+            <div class="advantage-item">1 Aylık Exxen üyeliği</div>
+            <div class="advantage-item">1 Ay YouTube Premium erişimi</div>
+            <div class="advantage-item">Kaspersky Premium + VPN (1 Ay)</div>
+            <div class="advantage-item">Abonelik boyunca Canva Pro</div>
+          </div>
+          
+          <div class="advantage-category">
+            <div class="category-title">📰 İçerik & Üyelik Avantajları</div>
+            <div class="advantage-item">Aposto yıllık üyeliklerde %50 indirim!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const ymcBtn = document.querySelector('.ymc-plus-btn');
+    const modal = document.getElementById('ymcModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const modalJoinButton = document.getElementById('modalJoinButton');
+    const modalShowAdvantages = document.getElementById('modalShowAdvantages');
+    const advantagesContainer = document.getElementById('advantagesContainer');
+
+    ymcBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    modalJoinButton.addEventListener('click', function() {
+      window.open('https://wa.me/905510096844', '_blank');
+    });
+
+    modalShowAdvantages.addEventListener('click', function() {
+      if (advantagesContainer.style.maxHeight) {
+        advantagesContainer.style.maxHeight = null;
+        modalShowAdvantages.textContent = 'Tüm Avantajları Göster';
+      } else {
+        advantagesContainer.style.maxHeight = advantagesContainer.scrollHeight + 'px';
+        modalShowAdvantages.textContent = 'Avantajları Gizle';
+        setTimeout(() => {
+          advantagesContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 300);
+      }
+    });
+
+    document.querySelectorAll('.link-item').forEach(link => {
+      link.addEventListener('click', function() {
+        gtag('event', 'link_click', {
+          'link_name': this.querySelector('span').innerText
+        });
+      });
+    });
+
+    document.querySelector('video').addEventListener('error', function() {
+      this.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
